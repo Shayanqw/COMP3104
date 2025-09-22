@@ -1,0 +1,23 @@
+name: Week03 CI
+
+on:
+  push:
+    paths:
+      - 'Week03/**'
+      - '.github/workflows/week03.yml'
+  pull_request:
+    paths:
+      - 'Week03/**'
+      - '.github/workflows/week03.yml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Show Week03 contents
+        run: |
+          echo "✅ Running CI for Week03"
+          ls -R Week03
