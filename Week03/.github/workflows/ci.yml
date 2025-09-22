@@ -1,0 +1,17 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Basic checks
+        run: |
+          echo "✅ GitHub Actions is working"
+          ls -la
+          test -f README.md && echo "README exists ✅" || (echo "README missing ❌" && exit 1)
